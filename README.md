@@ -30,22 +30,22 @@ The Histogram of gray scale image and color image is shown.
 ### Register Number: 212222230072
 
 ### Grayscale image and Color image
-```
+```py
 import cv2
 import matplotlib.pyplot as plt
-gray_image = cv2.imread("gray.jpeg")
-color_image = cv2.imread("dip.jpeg",-1)
+gray_image = cv2.imread("immg.jpeg")
+color_image = cv2.imread("img.jpeg")
 cv2.imshow("Gray Image",gray_image)
-cv2.imshow("Colour Image",color_image)
+cv2.imshow("Color Image",color_image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-### Histogram of Grayscale image 
-```
+### Histogram of Grayscale image and color image
+```py
 import numpy as np
 import cv2
-Gray_image = cv2.imread("gray.jpeg")
-Color_image = cv2.imread("dip.jpeg")
+Gray_image = cv2.imread("immg.jpeg")
+Color_image = cv2.imread("img.jpeg")
 import matplotlib.pyplot as plt
 gray_hist = cv2.calcHist([Gray_image],[0],None,[256],[0,256])
 color_hist = cv2.calcHist([Color_image],[0],None,[256],[0,256])
@@ -57,9 +57,6 @@ plt.xlabel("Grayscale Value")
 plt.ylabel("Pixel Count")
 plt.stem(gray_hist)
 plt.show()
-```
-### Histogram of Color image
-```
 plt.imshow(Color_image)
 plt.show()
 plt.title("Histogram of Color Image - Green Channel")
@@ -69,11 +66,12 @@ plt.stem(color_hist)
 plt.show()
 cv2.waitKey(0)
 ```
+
 ### Histogram equalization of Grayscale image
-```
+```py
 
 import cv2
-gray_image = cv2.imread("dip.jpeg",0)
+gray_image = cv2.imread("immg.jpeg",0)
 cv2.imshow('Grey Scale Image',gray_image)
 equ = cv2.equalizeHist(gray_image)
 cv2.imshow("Equalized Image",equ)
@@ -84,9 +82,8 @@ cv2.destroyAllWindows()
 
 ## Output:
 ### Input Grayscale Image and Color Image
-![Screenshot 2024-03-05 222035](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/40e1b43f-c9c1-4e59-b5f5-8d1aacf42403)
+![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/1693fc25-c984-43a9-9f4a-91a068653c92)
 
-![Screenshot 2024-03-05 222053](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/0f75d66a-fae8-4e21-9615-e6e4d5c53536)
 
 
 
@@ -94,9 +91,11 @@ cv2.destroyAllWindows()
 
 ### Histogram of Grayscale Image and any channel of Color Image
 ### Grayscale image
-![Screenshot 2024-03-05 222355](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/9523ef5a-5de6-4f63-9261-524738b20392)
+![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/9e057e06-8622-4341-8adc-695d6cad2c52)
 
-![Screenshot 2024-03-05 222414](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/8737af8c-b435-4c09-aa26-05663f696e2a)
+
+![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/bf9d87f9-0b7e-4209-b562-72b380f1e774)
+
 
 
 
@@ -109,7 +108,8 @@ cv2.destroyAllWindows()
 ![Screenshot 2024-03-05 222459](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/a8bc4dcc-0ec1-4b7f-9174-4165a572dfe4)
 
 ### Histogram Equalization of Grayscale Image.
-![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/6d7cc627-2489-43c0-b0de-709fb44a391d)
+![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/42a52c2c-9896-4c81-a6d7-a60917b1b045)
+
 
 
 
