@@ -29,86 +29,65 @@ The Histogram of gray scale image and color image is shown.
 ### Developed By: LATHIKESHWARAN J
 ### Register Number: 212222230072
 
-### Grayscale image and Color image
+### Histogram Equalization for Grayscale Images
 ```py
+import matplotlib.pyplot as plt 
 import cv2
-import matplotlib.pyplot as plt
-gray_image = cv2.imread("immg.jpeg")
-color_image = cv2.imread("img.jpeg")
-cv2.imshow("Gray Image",gray_image)
-cv2.imshow("Color Image",color_image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+
+img = cv2.imread('parrot.jpg', cv2.IMREAD_GRAYSCALE)
+
+plt.imshow(img, cmap='gray')
+plt.title('Original Image')
+plt.show()
+
+plt.hist(img.ravel(),256,range = [0, 256]);
+plt.title('Original Image')
+plt.show()
+
+img_eq = cv2.equalizeHist(img)
+
+plt.hist(img_eq.ravel(), 256, range = [0, 256]); 
+plt.title('Equalized Histogram')
 ```
-### Histogram of Grayscale image and color image
+### Histogram Equalization for Color Images
 ```py
-import numpy as np
-import cv2
-Gray_image = cv2.imread("immg.jpeg")
-Color_image = cv2.imread("img.jpeg")
-import matplotlib.pyplot as plt
-gray_hist = cv2.calcHist([Gray_image],[0],None,[256],[0,256])
-color_hist = cv2.calcHist([Color_image],[0],None,[256],[0,256])
-plt.figure()
-plt.imshow(Gray_image)
-plt.show()
-plt.title("Histogram")
-plt.xlabel("Grayscale Value")
-plt.ylabel("Pixel Count")
-plt.stem(gray_hist)
-plt.show()
-plt.imshow(Color_image)
-plt.show()
-plt.title("Histogram of Color Image - Green Channel")
-plt.xlabel("Intensity Value")
-plt.ylabel("Pixel Count")
-plt.stem(color_hist)
-plt.show()
-cv2.waitKey(0)
+img = cv2.imread('parrot.jpg', cv2.IMREAD_COLOR)
+
+img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+img_hsv[:,:,2] = cv2.equalizeHist(img_hsv[:, :, 2])
+
+img_eq = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
+
+plt.subplot(121); plt.imshow(img[:, :, ::-1]); plt.title('Original Color Image')
+plt.subplot(122); plt.imshow(img_eq[:, :, ::-1]); plt.title('Equalized Image')
+
+plt.figure(figsize = [15,4])
+plt.subplot(121); plt.hist(img.ravel(),256,range = [0, 256]); plt.title('Original Image')
+plt.subplot(122); plt.hist(img_eq.ravel(),256,range = [0, 256]); plt.title('Histogram Equalized')
 ```
-
-### Histogram equalization of Grayscale image
-```py
-
-import cv2
-gray_image = cv2.imread("immg.jpeg",0)
-cv2.imshow('Grey Scale Image',gray_image)
-equ = cv2.equalizeHist(gray_image)
-cv2.imshow("Equalized Image",equ)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-
 
 ## Output:
-### Input Grayscale Image and Color Image
-![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/1693fc25-c984-43a9-9f4a-91a068653c92)
+### Histogram Equalization for Grayscale Images
+![image](https://github.com/user-attachments/assets/e138462c-b20a-41a3-82eb-929716204565)
+
+![image](https://github.com/user-attachments/assets/7eaf064c-1e11-467c-9d97-64b77a95ac2d)
+
+![image](https://github.com/user-attachments/assets/ab225c9a-6122-4e84-86c1-22dba4e8c8d2)
 
 
 
 
 
 
-### Histogram of Grayscale Image and any channel of Color Image
-### Grayscale image
-![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/9e057e06-8622-4341-8adc-695d6cad2c52)
-
-
-![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/bf9d87f9-0b7e-4209-b562-72b380f1e774)
 
 
 
+### Histogram Equalization for Color Images
+![image](https://github.com/user-attachments/assets/3c3f5804-88f1-44f0-a6b5-b93d6ac6002c)
 
+![image](https://github.com/user-attachments/assets/74dbd05d-f7a2-446a-9b8e-bce9b05db2bc)
 
-
-### Color image
-
-![Screenshot 2024-03-05 222450](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/4eacbe9d-62b2-4fd0-a69f-8be2e2ccc7c6)
-
-![Screenshot 2024-03-05 222459](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/a8bc4dcc-0ec1-4b7f-9174-4165a572dfe4)
-
-### Histogram Equalization of Grayscale Image.
-![image](https://github.com/LATHIKESHWARAN/Histogram-of-an-images/assets/119393556/42a52c2c-9896-4c81-a6d7-a60917b1b045)
 
 
 
